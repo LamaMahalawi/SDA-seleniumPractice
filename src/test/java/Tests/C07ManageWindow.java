@@ -1,5 +1,6 @@
 package Tests;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,17 +17,11 @@ public class C07ManageWindow {
             Thread.sleep(1000);
 
             // Print the position and size of the page.
-            Point dimensions = driver.manage().window().getPosition();
-            System.out.println("Dimensions X :" + dimensions.getX());
-            System.out.println("Dimensions Y :" + dimensions.getY());
-            System.out.println("Dimensions = " + dimensions);
-
+            Dimension Size = driver.manage().window().getSize();
+            System.out.println("Current size = " + Size);
 
             Point position = driver.manage().window().getPosition();
-            System.out.println("position X : " + position.getX());
-            System.out.println("position Y : " + position.getY());
-            System.out.println("position = " + position);
-
+            System.out.println("Current position = " + position);
 
 
             // Adjust the position and size of the page as desired.
