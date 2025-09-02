@@ -13,6 +13,7 @@ public class C06VerifyTitle {
         // Open URL of Website
         //driver.navigate().to("https://www.youtube.com");
         driver.navigate().to("https://youtu.be/QjuG1BIcq6k?si=jt-_zKQr6YYGAlwp");
+        Thread.sleep(1000);
 
         //Get title
         String Title = driver.getTitle();
