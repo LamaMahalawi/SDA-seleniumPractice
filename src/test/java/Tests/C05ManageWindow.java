@@ -1,16 +1,16 @@
 package Tests;
 
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.Point;
 
-public class C04PositionAndSize {
+public class C05ManageWindow {
     public static void main (String[] args) throws InterruptedException {
 
         // Go to the w3school URL
         WebDriver driver = new ChromeDriver();
 
-        driver.navigate().to("https://www.w3schools.com");
+        driver.navigate().to("https://www.amazon.com");
         Thread.sleep(1000);
 
         // Print the position and size of the page
