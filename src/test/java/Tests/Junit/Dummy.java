@@ -1,4 +1,4 @@
-package Tests;
+package Tests.Junit;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -20,10 +20,10 @@ public class Dummy {
         String name4 = new String( "Lama");
 
         //Assertions.assertNull(name1);
-        //Assertions.assertNull(name2); //False
-        //Assertions.assertNull(name3); //False
-        //Assertions.assertNotNull(name2); //null so true
-        //Assertions.assertNotNull(name3); //null so true
+        //Assertions.assertNull(name2);
+        //Assertions.assertNull(name3);
+        //Assertions.assertNotNull(name2);
+        //Assertions.assertNotNull(name3);
 
 
         //Assertions.assertEquals(name2,name3);
@@ -31,12 +31,5 @@ public class Dummy {
 
         //Assertions.assertEquals(name2,name4);
         //Assertions.assertSame(name2,name4);
-
-
-
-
-
-
-
     }
 }
