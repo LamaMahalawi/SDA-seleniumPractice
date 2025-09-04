@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class C03JunitTests03 {
+public class T01JunitTests03 {
     WebDriver driver;
 
     @BeforeEach

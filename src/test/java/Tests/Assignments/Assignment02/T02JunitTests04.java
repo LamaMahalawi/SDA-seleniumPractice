@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class C04JunitTests04 {
+public class T02JunitTests04 {
     WebDriver driver;
 
     @BeforeEach

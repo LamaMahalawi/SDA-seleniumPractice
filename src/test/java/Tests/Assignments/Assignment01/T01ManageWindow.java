@@ -3,7 +3,7 @@ package Tests.Assignments.Assignment01;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class C05ManageWindow {
+public class T01ManageWindow {
     public static void main(String[] args) throws InterruptedException {
 
         //invoke chrome Browser

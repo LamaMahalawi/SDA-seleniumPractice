@@ -3,7 +3,7 @@ package Tests.Assignments.Assignment01;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class C06VerifyTitle {
+public class T02VerifyTitle {
     public static void main (String[] args) throws InterruptedException {
 
         // invoke FirefoxDriver
