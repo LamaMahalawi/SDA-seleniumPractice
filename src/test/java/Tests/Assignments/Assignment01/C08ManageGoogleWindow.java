@@ -1,4 +1,4 @@
-package Tests.Maven;
+package Tests.Assignments.Assignment01;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;

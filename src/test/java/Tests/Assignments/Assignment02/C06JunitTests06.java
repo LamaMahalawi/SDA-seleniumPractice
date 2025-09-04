@@ -1,4 +1,4 @@
-package Tests.Junit;
+package Tests.Assignments.Assignment02;
 
 
 import org.junit.jupiter.api.*;
