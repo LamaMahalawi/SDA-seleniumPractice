@@ -6,15 +6,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
-/*
-   Task:  Go to "http://webdriveruniversity.com/To-Do-List/index.html" and create a test that:
-
+/* Task:  Go to "http://webdriveruniversity.com/To-Do-List/index.html" and create a test that:
            Uses Faker to generate 5 random task names
            Adds all tasks to the todo list
            Marks every other task as completed (strikethrough)
            Deletes all completed tasks
-           Verifies only incomplete tasks remain
-   */
+           Verifies only incomplete tasks remain */
 
 public record C07_DynamicListManagement() {
 
