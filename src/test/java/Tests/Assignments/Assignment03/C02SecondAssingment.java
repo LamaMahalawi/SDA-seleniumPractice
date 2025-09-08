@@ -27,21 +27,15 @@ public class C02SecondAssingment {
         // TODO: Click on "Locators - Find By Playground Test Page"
         WebElement locatorsLink = driver.findElement(By.linkText("Locators - Find By Playground Test Page"));
         locatorsLink.click();
-
-        // TODO: Print current URL
         System.out.println("Current URL after clicking Locators: " + driver.getCurrentUrl());
 
         // TODO: Navigate back
         driver.navigate().back();
-
-        // TODO: Print URL after going back
         System.out.println("URL after going back: " + driver.getCurrentUrl());
 
         // TODO: Click on "WebDriver Example Page"
         WebElement webDriverExampleLink = driver.findElement(By.linkText("WebDriver Example Page"));
         webDriverExampleLink.click();
-
-        // TODO: Print current URL
         System.out.println("Current URL after clicking WebDriver Example Page: " + driver.getCurrentUrl());
 
         // TODO: Enter value 20 in number input
