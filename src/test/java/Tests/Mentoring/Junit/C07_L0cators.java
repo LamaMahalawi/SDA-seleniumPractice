@@ -1,4 +1,4 @@
-package Tests.Junit;
+package Tests.Mentoring.Junit;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
