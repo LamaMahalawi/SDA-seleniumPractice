@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-public class C10RadioButtons {
+public class C03_RadioButtons {
     WebDriver driver;
     String url ="https://www.facebook.com/";
 

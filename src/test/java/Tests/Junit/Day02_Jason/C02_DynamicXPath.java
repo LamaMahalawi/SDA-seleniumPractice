@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class C04_DynamicXPath {
+public class C02_DynamicXPath {
 
         WebDriver driver;
 

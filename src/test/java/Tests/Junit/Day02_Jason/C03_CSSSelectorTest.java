@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class C05_CSSSelectorTest {
+public class C03_CSSSelectorTest {
 
     WebDriver driver;
 

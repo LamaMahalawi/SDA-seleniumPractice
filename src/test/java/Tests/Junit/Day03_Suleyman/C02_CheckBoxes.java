@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.List;
 
-public class C09_CheckBoxes {
+public class C02_CheckBoxes {
 
     WebDriver driver;
 

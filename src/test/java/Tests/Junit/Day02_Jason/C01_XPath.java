@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class C03_XPath {
+public class C01_XPath {
     WebDriver driver;
 
     @BeforeEach
