@@ -32,8 +32,7 @@ public class C06_RelativeLocator {
     }
 
     @AfterEach
-    void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
+    void tearDown()  {
         driver.quit();
     }
 

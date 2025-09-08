@@ -33,7 +33,7 @@ public class C05_CSSSelectorTest {
         welcomeMessage.forEach(t-> System.out.println(t.getText()));
     }
     @Test
-    void addElementTest(){
+    void addElementTest(){ // // // // //
         driver.get("https://the-internet.herokuapp.com/add_remove_elements/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[onclick='addElement()']")));
