@@ -1,4 +1,4 @@
-package Tests.Junit;
+package Tests.Junit.Day03_Suleyman;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;

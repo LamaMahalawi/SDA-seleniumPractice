@@ -1,4 +1,4 @@
-package Tests.Mentoring.Junit;
+package Tests.Mentoring.Junit.Day02;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;

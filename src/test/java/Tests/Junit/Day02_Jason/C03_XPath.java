@@ -1,4 +1,4 @@
-package Tests.Mentoring.Junit;
+package Tests.Junit.Day02_Jason;
 
 
 import org.junit.jupiter.api.AfterEach;
