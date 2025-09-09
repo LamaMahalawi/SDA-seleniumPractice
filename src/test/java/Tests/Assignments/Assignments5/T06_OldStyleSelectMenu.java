@@ -11,6 +11,8 @@ import java.util.List;
 public class T06_OldStyleSelectMenu {
     WebDriver driver;
     Select select;
+    String url = "https://demoqa.com/select-menu";
+
 
     @BeforeEach
     void setUp() {
@@ -20,7 +22,7 @@ public class T06_OldStyleSelectMenu {
         driver.manage().window().maximize();
 
         // Open https://demoqa.com/select-menu
-        driver.get("https://demoqa.com/select-menu");
+        driver.get(url);
 
         // Select Old Style Select Menu using element id
         WebElement oldStyleSelect = driver.findElement(By.id("oldSelectMenu"));
@@ -28,35 +30,30 @@ public class T06_OldStyleSelectMenu {
     }
 
     @Test
-    void printAllTest() throws InterruptedException {
+    void printAndSelect() throws InterruptedException {
+
         // Print all dropdown options
         List<WebElement> options = select.getOptions();
-        System.out.println("All dropdown options:");
-        options.forEach(opt -> System.out.println(opt.getText()));
-        Thread.sleep(2000);
-    }
+        System.out.println("All dropdown options in 'Old Style Select Menu' are:");
 
-    @Test
-    void selectByIndex() throws InterruptedException {
+        for (int i = 0; i < options.size(); i++) {
+            System.out.println(options.get(i).getText());
+
+        }
+
         // Select 'Purple' using index
         select.selectByIndex(4);
-        System.out.println("Selected " + select.getFirstSelectedOption().getText() + "by index");
+        System.out.println("Selected '" + select.getFirstSelectedOption().getText() + "' by index");
         Thread.sleep(500);
-    }
 
-    @Test
-    void selectByVisibleText() throws InterruptedException {
         // Select 'Magenta' using visible text
         select.selectByVisibleText("Magenta");
-        System.out.println("Selected " + select.getFirstSelectedOption().getText() + "by visible text");
+        System.out.println("Selected '" + select.getFirstSelectedOption().getText() + "' by visible text");
         Thread.sleep(500);
-    }
 
-    @Test
-    void selectByValue() throws InterruptedException {
         // Select an option using value
         select.selectByValue("1");
-        System.out.println("Selected " + select.getFirstSelectedOption().getText() + "by value");
+        System.out.println("Selected '" + select.getFirstSelectedOption().getText() + "' by value");
         Thread.sleep(500);
     }
 
