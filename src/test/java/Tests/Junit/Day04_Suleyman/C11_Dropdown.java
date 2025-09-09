@@ -13,7 +13,9 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
-public class C11_Dropdown { WebDriver driver;
+public class C11_Dropdown {
+
+    WebDriver driver;
     String url = "https://demoqa.com/select-menu";
     By dropdownById = By.id("oldSelectMenu");
     By multiSelectDropdownById = By.id("cars");

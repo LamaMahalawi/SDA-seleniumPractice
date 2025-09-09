@@ -12,8 +12,9 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
-public class C12_Dropdown02 {WebDriver driver;
+public class C12_Dropdown02 {
 
+    WebDriver driver;
     String url = "https://the-internet.herokuapp.com/dropdown";
     By dropDownById = By.id("dropdown");
 

@@ -35,27 +35,27 @@ public class C14_ExplicitWaitAndFluentWait {
     By clickMeLinkByXpath = By.xpath("//a[.='CLICK ME!']");
     By clickMeButton = By.id("button1");
     By wellDoneTextByTagName = By.tagName("h4");
+
+
     @Test
     void expliciteWaitTest()  {
-/*
-    Specifies the condition and the time that WebDriver should wait.
+/*Specifies the condition and the time that WebDriver should wait.
     In practice, WebDriverWait and Explicit Wait are synonymous,
     since their definitions and usage perfectly match.
 
     // How to use Explicit Wait
     // 1- Create a WebDriverWait object
-    // 2- Pass the desired condition to the 'until' method of the wait object
-*/
+    // 2- Pass the desired condition to the 'until' method of the wait object*/
 
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 
-        //    Go to https://webdriveruniversity.com/Popup-Alerts/index.html
+        //Go to https://webdriveruniversity.com/Popup-Alerts/index.html
         driver.get(url);
-        //    Click on Ajax Loader
+        //Click on Ajax Loader
         driver.findElement(clickMeLinkByXpath).click();
-        //    Click on 'Click Me'
+        //Click on 'Click Me'
         driver.findElement(clickMeButton).click();
-        //    Assert text "Well Done For Waiting....!!!"
+        //Assert text "Well Done For Waiting....!!!"
 
         // First Way : Using "ExpectedConditions"
         //wait.until(ExpectedConditions.visibilityOfElementLocated(wellDoneTextByTagName));
@@ -93,7 +93,12 @@ public class C14_ExplicitWaitAndFluentWait {
 
         // First Way : Using "ExpectedConditions"
         wait.until(ExpectedConditions.visibilityOfElementLocated(wellDoneTextByTagName));
-        Assertions.assertTrue(driver.findElement(wellDoneTextByTagName).getText();
+        Assertions.assertTrue(driver.findElement(wellDoneTextByTagName).getText().contains("Well Done For Waiting"));
+
+        // Second Way: Write your own wait strategy
+        //wait.until(t-> t.findElement(wellDoneTextByTagName).isDisplayed());
+        //Assertions.assertTrue(driver.findElement(wellDoneTextByTagName).getText().contains("Well Done For Waiting"));
+
     }
 
     @BeforeEach
