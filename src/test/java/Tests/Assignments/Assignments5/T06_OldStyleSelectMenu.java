@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
-public class T03_OldStyleSelectMenu {
+public class T06_OldStyleSelectMenu {
     WebDriver driver;
     Select select;
 
@@ -40,7 +40,7 @@ public class T03_OldStyleSelectMenu {
     void selectByIndex() throws InterruptedException {
         // Select 'Purple' using index
         select.selectByIndex(4);
-        System.out.println("Selected by index: " + select.getFirstSelectedOption().getText());
+        System.out.println("Selected " + select.getFirstSelectedOption().getText() + "by index");
         Thread.sleep(500);
     }
 
@@ -48,7 +48,7 @@ public class T03_OldStyleSelectMenu {
     void selectByVisibleText() throws InterruptedException {
         // Select 'Magenta' using visible text
         select.selectByVisibleText("Magenta");
-        System.out.println("Selected by visible text: " + select.getFirstSelectedOption().getText());
+        System.out.println("Selected " + select.getFirstSelectedOption().getText() + "by visible text");
         Thread.sleep(500);
     }
 
@@ -56,7 +56,7 @@ public class T03_OldStyleSelectMenu {
     void selectByValue() throws InterruptedException {
         // Select an option using value
         select.selectByValue("1");
-        System.out.println("Selected by value: " + select.getFirstSelectedOption().getText());
+        System.out.println("Selected " + select.getFirstSelectedOption().getText() + "by value");
         Thread.sleep(500);
     }
 
