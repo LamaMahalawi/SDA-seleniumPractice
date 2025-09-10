@@ -1,7 +1,6 @@
-package Tests.Mentoring.Day05;
+package Tests.Mentoring.Day05_Extends;
 
 import Tests.utilities.TestBase;
-
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 

@@ -1,4 +1,4 @@
-package Tests.Mentoring.Day05;
+package Tests.Mentoring.Day05_Extends;
 
 
 import org.junit.jupiter.api.Assertions;
