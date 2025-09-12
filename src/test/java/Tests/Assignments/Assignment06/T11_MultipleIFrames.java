@@ -28,6 +28,6 @@ public class T11_MultipleIFrames extends TestBase {
         driver.switchTo().defaultContent();
         System.out.println("Returned to main page");
 
-        Thread.sleep(1000); // pause for observation
+        Thread.sleep(1000);
     }
 }
