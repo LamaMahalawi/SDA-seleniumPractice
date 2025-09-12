@@ -1,4 +1,4 @@
-package Tests.Assignments.Assignments5;
+package Tests.Assignments.Assignment05;
 
 
 import org.junit.jupiter.api.*;

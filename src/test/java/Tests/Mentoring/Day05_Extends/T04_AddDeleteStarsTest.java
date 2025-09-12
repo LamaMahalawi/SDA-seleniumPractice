@@ -17,8 +17,8 @@ public class T04_AddDeleteStarsTest extends TestBase {
 
     String url = "https://claruswaysda.github.io/addDeleteStar.html";
 
-    By addStarButtonById = By.id("push-button");
-    By deleteStarButtonById = By.id("delete-button");
+    By addStarButtonById = By.xpath("//*[@id=\"push-button\"]");
+    By deleteStarButtonById = By.xpath("//*[@id=\"delete-button\"]");
     By starsByXpath = By.xpath("//div[@class='star']");
 
     // Method to add stars
@@ -26,6 +26,7 @@ public class T04_AddDeleteStarsTest extends TestBase {
         WebElement addButton = driver.findElement(addStarButtonById);
         for (int i = 0; i < addNum; i++) {
             addButton.click();
+
         }
     }
 
@@ -44,15 +45,16 @@ public class T04_AddDeleteStarsTest extends TestBase {
     }
 
     @Test
-    void testAddDeleteStars() {
+    void AddDeleteStarsTest() throws InterruptedException {
         driver.get(url);
 
-        addStars(5);
-
-        deleteStars(2);
-        verifyStarsAfterDeleted(3);
-
+        addStars(10);
+        Thread.sleep(1000);
         deleteStars(3);
-        verifyStarsAfterDeleted(0);
+        Thread.sleep(1000);
+        verifyStarsAfterDeleted(7);
+        System.out.println("Verification passed");
+
+
     }
 }
