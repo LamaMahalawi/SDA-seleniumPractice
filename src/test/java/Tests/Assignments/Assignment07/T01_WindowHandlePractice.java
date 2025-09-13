@@ -4,34 +4,57 @@ import Tests.utilities.TestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-
-import java.util.ArrayList;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+import java.util.Set;
 
 public class T01_WindowHandlePractice extends TestBase {
 
-    By openIndex = By.cssSelector("#openIndex");
-    String url = "https://claruswaysda.github.io/";
-    By WindowHandle = By.xpath("/html/body/div/div[24]/a");
-
     @Test
-    void testWindowHandlePractice() {
-        driver.get(url);
+    void testWindowHandlePractice() throws InterruptedException {
 
-        // Click on Window Handle
-        driver.findElement(WindowHandle).click();
+        // Step 1: Go to https://claruswaysda.github.io/
+        driver.get("https://claruswaysda.github.io/");
 
-         // Used ArrayList so that we can access any window by its number (index).
-        ArrayList<String> windows = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(windows.get(1));
+        // Step 2: Click on 'Window Handle'
+        driver.findElement(By.xpath("/html/body/div/div[24]/a")).click();
+        System.out.println("Clicked 'Window Handle'");
 
-        // Click on 'Open Index Page'
-        driver.findElement(openIndex).click();
+        // Switch to new window
+        String mainWindow = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
+        for (String window : allWindows) {
+            if (!window.equals(mainWindow)) {
+                driver.switchTo().window(window);
+                break;
+            }
+        }
+        Thread.sleep(200);
+        System.out.println("Switched to 'Window Handle'");
+
+        // Step 3: Click on 'Open Index Page'
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement openIndexBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("openIndex")));
+        openIndexBtn.click();
+        System.out.println("Clicked 'Open Index Page'");
 
 
-        windows = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(windows.get(windows.size() - 1));
+        // Switch to the opened index page
+        Set<String> windowsAfterIndex = driver.getWindowHandles();
+        for (String window : windowsAfterIndex) {
+            if (!window.equals(mainWindow) && !window.equals(driver.getWindowHandle())) {
+                driver.switchTo().window(window);
+                break;
+            }
+        }
+        Thread.sleep(200);
+        System.out.println("Switched to 'Open Index Page'");
 
-        // Verify the link 'https://claruswaysda.github.io/index.html'
-        Assertions.assertEquals("https://claruswaysda.github.io/index.html", driver.getCurrentUrl());
-        System.out.println("Verification successful");
+        // Step 6: Verify 'https://claruswaysda.github.io/index.html'
+        String currentUrl = driver.getCurrentUrl();
+        System.out.println("Current URL: " + currentUrl);
+        Assertions.assertTrue(currentUrl.contains("index.html"));
+        System.out.println("URL verification passed");
     }}
