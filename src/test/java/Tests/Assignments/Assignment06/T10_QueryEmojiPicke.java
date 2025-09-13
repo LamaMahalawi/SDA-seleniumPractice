@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -57,7 +56,7 @@ public class T10_QueryEmojiPicke extends TestBase {
         System.out.println("Returned to parent frame");
 
 
-        // Step 5. Fill out the form ( 2 ONLY ) and press the apply button
+        // Step 5. Fill out the form ( 2 ONLY )
         driver.findElement(Text).sendKeys("Lama");
         driver.findElement(NameOfFood).sendKeys("food");
         Thread.sleep(1000);

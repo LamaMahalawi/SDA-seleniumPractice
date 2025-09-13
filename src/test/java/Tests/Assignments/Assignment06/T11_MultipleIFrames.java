@@ -9,7 +9,7 @@ import java.util.List;
 public class T11_MultipleIFrames extends TestBase {
 
     @Test
-    void testMultipleIframesSimple() throws InterruptedException {
+    void testMultipleIframes() throws InterruptedException {
         driver.get("http://demo.guru99.com/test/guru99home/");
 
         // 1. Find the number of iframes on the page

@@ -48,8 +48,7 @@ public class C25_DragAndDrop extends TestBase {
         // Go to URL: http://demo.guru99.com/test/drag_drop.html
         Actions action = new Actions(driver);
 
-        action
-                .dragAndDrop(bank,debitAccount)//Drag and drop the BANK button to the Account section in DEBIT SIDE
+        action.dragAndDrop(bank,debitAccount)//Drag and drop the BANK button to the Account section in DEBIT SIDE
                 .pause(1000)
                 .dragAndDrop(sales,creditAccount)
                 .pause(1000)

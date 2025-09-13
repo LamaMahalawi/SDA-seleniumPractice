@@ -1,4 +1,4 @@
-package Tests.Assignments.Assignment03_Locators;
+package Tests.Assignments.Assignment03;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
