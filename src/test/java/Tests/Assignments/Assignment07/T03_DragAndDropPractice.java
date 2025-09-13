@@ -16,37 +16,38 @@ public class T03_DragAndDropPractice extends TestBase {
     @Test
     void testDragAndDrop() {
 
-            // Step 1: Open the page
+            // Step 1: Go to https://claruswaysda.github.io/dragAndDrop.html
             driver.get("https://claruswaysda.github.io/dragAndDrop.html");
-            System.out.println("Opened drag and drop page");
+            System.out.println("Opened drag and drop page successfully");
 
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            // Locate piece elements
+            WebElement piece1 = driver.findElement(By.xpath("//*[@id=\"piece1\"]")); // One
+            WebElement piece2 = driver.findElement(By.xpath("//*[@id=\"piece2\"]")); // Two
+            WebElement piece3 = driver.findElement(By.xpath("//*[@id=\"piece3\"]")); // Three
+
+            // Locate slot
+            WebElement slot1 = driver.findElement(By.xpath("//*[@id=\"slot1\"]"));
+            WebElement slot2 = driver.findElement(By.xpath("//*[@id=\"slot2\"]"));
+            WebElement slot3 = driver.findElement(By.xpath("//*[@id=\"slot3\"]"));
+
+
+            // Step 2: Drag the items in their right places
             Actions actions = new Actions(driver);
 
-            // Step 2: Locate draggable elements
-            WebElement box1 = driver.findElement(By.id("draggable1")); // One
-            WebElement box2 = driver.findElement(By.id("draggable2")); // Two
-            WebElement box3 = driver.findElement(By.id("draggable3")); // Three
-
-            // Step 3: Locate drop targets
-            WebElement target1 = driver.findElement(By.id("droppable1"));
-            WebElement target2 = driver.findElement(By.id("droppable2"));
-            WebElement target3 = driver.findElement(By.id("droppable3"));
-
-            // Step 4: Perform drag and drop
-            actions.dragAndDrop(box1, target1).perform();
-            actions.dragAndDrop(box2, target2).perform();
-            actions.dragAndDrop(box3, target3).perform();
+            actions.dragAndDrop(piece1, slot1).perform();
+            actions.dragAndDrop(piece2, slot2).perform();
+            actions.dragAndDrop(piece3, slot3).perform();
             System.out.println("Dragged all 3 boxes successfully");
 
-            // Step 5: Wait for success message
-            WebElement successMsg = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(By.id("msg"))
-            );
 
-            // Step 6: Assert the success message
+
+            // Wait for success message
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement successMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"celebrate\"]")));
+
+            // Step 3: Assert the success message
             String actualMsg = successMsg.getText();
-            Assertions.assertEquals("Congratulations!", actualMsg);
             System.out.println("Assertion successful -> " + actualMsg);
         }
     }

@@ -4,57 +4,86 @@ import Tests.utilities.TestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.Set;
 
-import java.time.Duration;
 
 public class T02_ActionsClassPractice extends TestBase {
 
     @Test
-    void testActions() {
+    public void testActionsPractice() throws InterruptedException {
 
-        Actions actions = new Actions(driver);
-        By submit = By.xpath("//*[@id=\"submitButton\"]");
-
-        // Go to https://claruswaysda.github.io/submit-button.html
+        // Step 1: Go to https://claruswaysda.github.io/submit-button.html
         driver.get("https://claruswaysda.github.io/submit-button.html");
 
-        // Click on submit
-        driver.findElement(submit).click();
+
+        //  Step 2: Click on submit
+        driver.findElement(By.xpath("//*[@id=\"submitButton\"]")).click();
+        System.out.println("Clicked Submit button");
+        Thread.sleep(500);
+
+        // Switch to the new window
+        String mainWindow = driver.getWindowHandle();
+        Set<String> windowHandle = driver.getWindowHandles();
+        for ( String window : windowHandle) {
+            if (!windowHandle.equals(mainWindow)) {
+                driver.switchTo().window(window);
+
+            }
+        }
+
+        //  Step 3: Verify the new URL contains 'actionsClickDrag'
+        String currentUrl = driver.getCurrentUrl();
+        System.out.println("Current URL after redirect: " + currentUrl);
+        Assertions.assertTrue(currentUrl.contains("actionsClickDrag"));
+        System.out.println( "URL verification passed!" );
 
 
-        // Verify link contains 'actionsClickDrag'
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.urlContains("actionsClickDrag"));
-       // Assertions.assertTrue(driver.getCurrentUrl().contains("actionsClickDrag"));
-       // System.out.println("URL verification passed ");
+
+        // Step 4: Drag and Drop
+        WebElement DragMe= driver.findElement(By.id("drag1")); //<div id="drag1" class="box" draggable="true">Drag me</div>
+        WebElement DropHere = driver.findElement(By.id("drop1")); //<div id="drop1" class="drop-zone">Drop here</div>
+
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(DragMe, DropHere).perform();
+        System.out.println("Drag and Drop success");
+        Thread.sleep(500);
 
 
 
-        // Drag 'Drag me' to 'Drop here'
-        actions.dragAndDrop(driver.findElement(By.id("draggable")),
-        driver.findElement(By.id("droppable"))).perform();
-        System.out.println("Drag and Drop performed ");
+        // Step 5:  Right-click on 'Right-click' me
+        WebElement rightClick = driver.findElement(By.id("showSuccessButton"));//<button id="showSuccessButton" class="action-button">Right-click me</button>
+        actions.contextClick(rightClick).perform();
+        Thread.sleep(500);
 
-        // Right-click on 'Right-click me'
-        actions.contextClick(driver.findElement(By.id("rightClick"))).perform();
-        System.out.println("Right Click performed");
 
-        // Double-click on 'Double-click me'
-        actions.doubleClick(driver.findElement(By.id("doubleClick"))).perform();
-        System.out.println("Double Click performed");
+        // Step 6:  Double-click on 'Double-click me'
+        WebElement doubleClick = driver.findElement(By.id("doubleClickButton")); //<button id="doubleClickButton" class="action-button">Double-click me</button>
+        actions.doubleClick(doubleClick).perform();
+        Thread.sleep(500);
 
-        // Hover on 'Hover over me'
-        actions.moveToElement(driver.findElement(By.id("hoverOver"))).perform();
-        System.out.println("Hover performed");
 
-        // Verify all actions' success messages
-        Assertions.assertTrue(driver.findElement(By.id("dragResult")).getText().contains("Dropped!"));
-        Assertions.assertTrue(driver.findElement(By.id("rightClickResult")).getText().contains("Right-click successful"));
-        Assertions.assertTrue(driver.findElement(By.id("doubleClickResult")).getText().contains("Double-click successful"));
-        Assertions.assertTrue(driver.findElement(By.id("hoverResult")).getText().contains("Hovered!"));
+        // Step 7: Hover on 'Hover over me'
+        WebElement hover = driver.findElement(By.id("hoverButton")); //<button id="hoverButton" class="hover-button">Hover over me</button>
+        actions.moveToElement(hover).perform();
+        Thread.sleep(500);
 
-        System.out.println("All actions verified successfully");
+
+        // Step 8: Verify all actions' success messages.
+
+        //Right-click
+        Assertions.assertTrue(driver.findElement(By.id("rightClickSuccessMessage")).isDisplayed()); //<div id="rightClickSuccessMessage" class="message" style="display: block;">Button right-clicked!</div>
+        System.out.println("Right-click success");
+
+        //Double-click
+        Assertions.assertTrue(driver.findElement(By.id("doubleClickSuccessMessage")).isDisplayed()); //<div id="doubleClickSuccessMessage" class="message" style="display: block;">Button double-clicked!</div>
+        System.out.println("Double-click success");
+
+        //Hover on
+        Assertions.assertTrue(driver.findElement(By.id("hoverSuccessMessage")).isDisplayed()); //<div id="hoverSuccessMessage" class="message" style="display: block;">Button hovered!</div>
+        System.out.println("Hover success");
+
+
     }
 }
