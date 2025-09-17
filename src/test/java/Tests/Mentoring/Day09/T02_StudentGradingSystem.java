@@ -1,7 +1,7 @@
 package Tests.Mentoring.Day09;
 
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,48 +12,44 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class T02_StudentGradingSystem {
     @Test
-    void writeGradesToExcelAndVerifyAlice() throws IOException {
-        String filePath = "src/test/resources/TestData02.xlsx";
+    void test() throws IOException {
 
-        FileInputStream fis = new FileInputStream(filePath);
-        Workbook workbook = new XSSFWorkbook(fis);
+        String path = Path.of(".","resources","TestData02.xlsx").toString();
+        FileInputStream fis = new FileInputStream(path);
+        Workbook workbook = WorkbookFactory.create(fis);
+        fis.close();
+
         Sheet sheet = workbook.getSheetAt(0);
-
-        String aliceGrade = "";
-
+        String aliceGrade = null;
+        String student = null;
 
         for (int i = 1; i <= sheet.getLastRowNum(); i++) {
             Row row = sheet.getRow(i);
-            String name = row.getCell(0).getStringCellValue();
+            student = row.getCell(0).getStringCellValue();
             int score = (int) row.getCell(1).getNumericCellValue();
+            Cell gradeCell = row.getCell(2);
 
-            String grade = getGrade(score);
+            String grade;
+            if (score >= 90) grade = "A";
+            else if (score >= 80) grade = "B";
+            else if (score >= 70) grade = "C";
+            else if (score >= 60) grade = "D";
+            else grade = "F";
 
-            Cell gradeCell = row.createCell(2, CellType.STRING);
             gradeCell.setCellValue(grade);
 
-            if (name.equals("Alice")) {
+            if (student.equals("Alice")) {
                 aliceGrade = grade;
             }
+            System.out.println(student + " is:"+ grade);
         }
 
-        fis.close();
+        Assertions.assertEquals("A", aliceGrade);
 
-        FileOutputStream fos = new FileOutputStream(filePath);
+        FileOutputStream fos = new FileOutputStream(path);
         workbook.write(fos);
-        workbook.close();
+
         fos.close();
-
-        // Assert Alice's grade
-        assertEquals("A", aliceGrade);
-        System.out.println("Grades written to Excel. Alice's grade is: " + aliceGrade);
-    }
-
-    private String getGrade(int score) {
-        if (score >= 90) return "A";
-        if (score >= 80) return "B";
-        if (score >= 70) return "C";
-        if (score >= 60) return "D";
-        return "F";
+        workbook.close();
     }
 }
