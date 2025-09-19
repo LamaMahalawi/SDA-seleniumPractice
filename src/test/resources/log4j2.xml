@@ -15,6 +15,7 @@
                      %n = Yeni satır
                 -->
                 <Pattern>
+                    /////////////colors
                     %d{HH:mm:ss.SSS} |
                     %highlight{%-5level}{FATAL=red bold, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=blue bold, TRACE=black} |
                     [%t] |
@@ -43,10 +44,15 @@
 
     <!-- Loggers: Hangi log seviyesinde, hangi appender'ların kullanılacağını belirtir -->
     <Loggers>
+
+        ///////
+
         <!-- Root Logger: Tüm loglar için geçerli ayarlar -->
-        <Root level="info">
+        <Root level="warn">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile"/>
+
+
         </Root>
     </Loggers>
 </Configuration>
