@@ -1,7 +1,6 @@
-package Tests.Assignments.Assignments08;
+package Tests.Assignments.Assignment08;
 
 import Tests.utilities.TestBase;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

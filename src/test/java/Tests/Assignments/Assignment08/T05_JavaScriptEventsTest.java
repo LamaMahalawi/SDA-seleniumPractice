@@ -1,4 +1,4 @@
-package Tests.Assignments.Assignments08;
+package Tests.Assignments.Assignment08;
 
 import Tests.utilities.JavaScriptUtils;
 import Tests.utilities.TestBase;

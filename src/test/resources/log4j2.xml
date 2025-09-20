@@ -48,9 +48,10 @@
         ///////
 
         <!-- Root Logger: Tüm loglar için geçerli ayarlar -->
-        <Root level="warn">
+        <Root level="info">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile"/>
+
 
 
         </Root>

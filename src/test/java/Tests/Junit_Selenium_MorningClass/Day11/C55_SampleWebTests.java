@@ -4,16 +4,13 @@ import Tests.utilities.TestBaseExtentReport;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class C55_SampleWebTests extends TestBaseExtentReport {
     @Test
     public void googleSearchSuccessfulTest() {
-        test = extent.createTest("Google Search Test - Successful",
-                "Will search for 'Selenium' on Google");
+        test = extent.createTest("Google Search Test - Successful", "Will search for 'Selenium' on Google");
 
         try {
             test.info(" Navigating to Google homepage");
@@ -37,7 +34,7 @@ public class C55_SampleWebTests extends TestBaseExtentReport {
 
             // Wait for results
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            g
+
 
             // Check title
             String pageTitle = driver.getTitle();

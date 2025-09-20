@@ -2,15 +2,10 @@ package Tests.Mentoring.Day10;
 
 import Tests.utilities.TestBase2;
 import com.github.javafaker.Faker;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-
-import javax.crypto.spec.PSource;
 import java.util.Arrays;
 import java.util.List;
 
