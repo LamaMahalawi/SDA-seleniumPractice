@@ -28,6 +28,7 @@ public class T03_ExportWebTableToExcel extends TestBaseWithActionHelper {
         String path = Path.of(".", "resources", "ExportTableToExcel.xlsx").toString();
         logger.info("Table 1 exported successfully to resources/ExportTableToExcel.xlsx");
 
+        // Create Excel workbook
         Workbook workbook;
         File file = new File(path);
         if (file.exists()) {
@@ -46,6 +47,7 @@ public class T03_ExportWebTableToExcel extends TestBaseWithActionHelper {
         for (int i = 0; i < rows.size(); i++) {
             Row excelRow = sheet.createRow(i);
             List<WebElement> cells = rows.get(i).findElements(By.tagName("th"));
+
             if (cells.isEmpty()) {
                 cells = rows.get(i).findElements(By.tagName("td"));
             }
