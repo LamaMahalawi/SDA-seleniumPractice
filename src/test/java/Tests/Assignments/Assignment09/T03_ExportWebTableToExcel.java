@@ -24,7 +24,7 @@ public class T03_ExportWebTableToExcel extends TestBaseWithActionHelper {
         // Locate Table 1
         WebElement table = driver.findElement(By.id("t1"));
 
-        // Define the path in resources folder
+        // Store the Excel file in the resources folder
         String path = Path.of(".", "resources", "ExportTableToExcel.xlsx").toString();
         logger.info("Table 1 exported successfully to resources/ExportTableToExcel.xlsx");
 
@@ -35,8 +35,9 @@ public class T03_ExportWebTableToExcel extends TestBaseWithActionHelper {
             workbook = WorkbookFactory.create(fis);
             fis.close();
         } else {
-            workbook = WorkbookFactory.create(true); // Create new workbook
+            workbook = WorkbookFactory.create(true);
         }
+
 
         Sheet sheet = workbook.createSheet("table_01");
 
